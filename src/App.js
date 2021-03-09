@@ -1,23 +1,72 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const handleOpenInApp = () => {
+  const userAgent = navigator.userAgent || navigator.vendor
+  const ios = userAgent.match(/ipad/i) || userAgent.match(/iphone/i) || userAgent.match(/ipod/i)
+  const android = userAgent.match(/android/i)
   setTimeout(() => {
-    window.location.href = "https://link.duniagames.co.id/chat/join"
+    const isJoinRoom = window.location.href.includes('join')
+    if (isJoinRoom) {
+      if (ios) {
+        window.location.href = "https://link.duniagames.co.id/chat/join?id=JL9hM"
+      } 
+  
+      if (android) {
+        window.location.href = "https://link.duniagames.co.id/chat/join?id=JL9hM"
+      }
+    } else {
+      if (ios) {
+        window.location.href = "id.co.duniagames.ios://room-chat"
+      } 
+  
+      if (android) {
+        window.location.href = "duniagames://room-chats"
+      }
+    }
+
   }, 1)
+  setTimeout(() => {
+    let url;
+    if (android) { url = 'https://play.google.com/store/apps/details?id=id.co.duniagames'; }
+    if (ios) { url = 'https://apps.apple.com/id/app/dunia-games/id1446034036?l=id'; }
+    window.location.href = url;
+  }, 50);
 }
 
+const ChatRoom = () => {
+  return (
+    <div>
+      Chat room
+      You should open in app 
+      <button onClick={handleOpenInApp}>
+        Open in app
+      </button>
+    </div>
+  )
+}
 
-const handleOpenRoomChats = () => {
-  setTimeout(() => {
-    window.location.href = "duniagames://room-chat/chat/join?id=JL9hM"
-  }, 1)
+const JoinRoom = () => {
+  return (
+    <div>
+      Join room
+      <button onClick={handleOpenInApp}>
+        Open in app
+      </button>
+    </div>
+  )
 }
 
 const App = () => (
-  <div>
-    <button onClick={handleOpenInApp}>Open in app</button>
-    <button onClick={handleOpenRoomChats}>Open room chat</button>
-  </div>
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path='/chat/join' component={JoinRoom} />
+        <Route exact path='/chat' component={ChatRoom} />
+        <Route exact path='/chat/room' component={ChatRoom} />
+      </Switch>
+    </div>
+  </Router>
 );
 
 export default App;
