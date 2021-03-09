@@ -21,7 +21,7 @@ const handleOpenInApp = () => {
       } 
   
       if (android) {
-        window.location.href = "duniagames://room-chats"
+        window.location.href = "duniagames://room-chat"
       }
     }
 
