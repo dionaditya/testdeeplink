@@ -8,7 +8,7 @@ const handleOpenInApp = () => {
 
 const handleOpenRoomChats = () => {
   setTimeout(() => {
-    window.location.href = "id.co.duniagames://room-chat"
+    window.location.href = "duniagames://room-chat"
   }, 1)
 }
 
