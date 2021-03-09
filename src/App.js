@@ -6,7 +6,7 @@ const handleOpenInApp = () => {
   }, 1)
 }
 
-const handleOpenRoomChat = () => {
+const handleOpenRoomChats = () => {
   setTimeout(() => {
     window.location.href = "id.co.duniagames://room-chat"
   }, 1)
@@ -15,7 +15,7 @@ const handleOpenRoomChat = () => {
 const App = () => (
   <div>
     <button onClick={handleOpenInApp}>Open in app</button>
-    <button onClick={handleOpenRoomChat}></button>
+    <button onClick={handleOpenRoomChats}>Open room chat</button>
   </div>
 );
 
