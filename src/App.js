@@ -7,13 +7,14 @@ const handleOpenInApp = () => {
   const android = userAgent.match(/android/i)
   setTimeout(() => {
     const isJoinRoom = window.location.href.includes('join')
+    const currentUrl = window.location.href
     if (isJoinRoom) {
       if (ios) {
-        window.location.href = window.location.href
+        window.location.href = currentUrl
       } 
   
       if (android) {
-        window.location.href = window.location.href
+        window.location.href = currentUrl
       }
     } else {
       if (ios) {
