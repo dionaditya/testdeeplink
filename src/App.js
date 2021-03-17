@@ -7,7 +7,7 @@ const handleOpenInApp = () => {
   const android = userAgent.match(/android/i)
   setTimeout(() => {
     const isJoinRoom = window.location.href.includes('join')
-    const url = window.location.href
+    const url = "https://link.duniagames.co.id/chat/join?id=9JDcQ"
     if (isJoinRoom) {
       if (ios) {
         window.location.href = url
