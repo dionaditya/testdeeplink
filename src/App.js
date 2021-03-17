@@ -7,37 +7,22 @@ const handleOpenInApp = () => {
   const android = userAgent.match(/android/i)
   setTimeout(() => {
     const isJoinRoom = window.location.href.includes('join')
-    const urlAndroidDeepLink = "duniagames://room-chat"
-    const urlIosAndroidDeepLink = "id.co.duniagames.ios://room-chat"
+    const androidDeepLink = "duniagames://room-chat"
+    const iosDeepLink = "id.co.duniagames.ios://room-chat"
     if (isJoinRoom) {
-      if (ios) {
-        window.location.href = urlIosAndroidDeepLink + '/join' + window.location.search
-      } 
-  
-      if (android) {
-        window.location.href = urlAndroidDeepLink + "/join" + window.location.search
-      }
+      const deepLink  = ios ? iosDeepLink : androidDeepLink
+      window.location.href = deepLink + '/join' + window.location.search
     } else {
-      if (ios) {
-        window.location.href = "id.co.duniagames.ios://room-chat"
-      } 
-  
-      if (android) {
-        window.location.href = "duniagames://room-chat"
-      }
+      const deepLink  = ios ? iosDeepLink : androidDeepLink
+      window.location.href = deepLink
     }
-
     setTimeout(() => {
       let url;
       if (android) { url = 'https://play.google.com/store/apps/details?id=id.co.duniagames'; }
       if (ios) { url = 'https://apps.apple.com/id/app/dunia-games/id1446034036?l=id'; }
       window.location.href = url;
-    }, 500);
-  
+    }, 500); 
   }, 1)
-
-
-
 }
 
 const ChatRoom = () => {
