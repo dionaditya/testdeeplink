@@ -31,7 +31,7 @@ const handleOpenInApp = () => {
       if (android) { url = 'https://play.google.com/store/apps/details?id=id.co.duniagames'; }
       if (ios) { url = 'https://apps.apple.com/id/app/dunia-games/id1446034036?l=id'; }
       window.location.href = url;
-    }, 50);
+    }, 500);
   
   }, 1)
 
