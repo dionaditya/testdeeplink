@@ -9,11 +9,11 @@ const handleOpenInApp = () => {
     const isJoinRoom = window.location.href.includes('join')
     if (isJoinRoom) {
       if (ios) {
-        window.location.href = "https://link.duniagames.co.id/chat/join?id=JL9hM"
+        window.location.href = window.location.href
       } 
   
       if (android) {
-        window.location.href = "https://link.duniagames.co.id/chat/join?id=JL9hM"
+        window.location.href = window.location.href
       }
     } else {
       if (ios) {
